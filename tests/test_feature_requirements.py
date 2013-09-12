@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+
+import os
+import sys
+orch_dir = '/'.join(os.path.realpath(__file__).split('/')[:-2])
+print ('Using orch modules from: %s' % orch_dir)
+sys.path.insert(0, orch_dir)
+
 from orch.features import requirements
 from orch.deconf import format_flat_dict
 

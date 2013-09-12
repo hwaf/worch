@@ -33,9 +33,9 @@ class FakeCfg:
         return (self.__dict__)
 
 def test_envmunge():
-    print example_dir
+    print (example_dir)
     cfgs = glob('%s/*.cfg'%example_dir)
-    print 'Using config files: %s' % str(cfgs)
+    print ('Using config files: %s' % str(cfgs))
     suite = deconf.load(cfgs,
                         formatter = deconf.example_formatter)
     pp.pprint(suite)
@@ -45,9 +45,9 @@ def test_envmunge():
     pp.pprint(cfg.env.__dict__)
 
 def test_envmunger():
-    print example_dir
+    print (example_dir)
     cfgs = glob('%s/test_envmunge.cfg'%example_dir)
-    print 'Using config files: %s' % str(cfgs)
+    print ('Using config files: %s' % str(cfgs))
     suite = deconf.load(cfgs,
                         formatter = deconf.example_formatter)
     pp.pprint(suite)
@@ -59,7 +59,7 @@ def test_envmunger():
         oldv = os.environ.get(var,'')
         if newv == oldv:
             continue
-        print '%s: "%s" --> "%s"' % (var, oldv, newv)
+        print ('%s: "%s" --> "%s"' % (var, oldv, newv))
     
 
 def test_export():
@@ -72,7 +72,7 @@ def test_export():
         if pkg == 'env': continue
         me = env.__dict__['munged_env']
         for var in ['PATH','ENVMUNGE','GROUP','PACKAGE']:
-            print 'PKGENV:', pkg, var, me.get(var,"(not set)")
+            print ('PKGENV: %s %s %s' % (pkg, var, me.get(var,"(not set)")))
 
 
 
