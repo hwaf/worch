@@ -27,13 +27,13 @@ def check_values(cfg, what):
             assert ssec['what'] == what
 
 def test_parse_self_contained():
-    if 'DECONF_INCLUDE_PATH' in os.environ.keys():
+    if 'DECONF_INCLUDE_PATH' in os.environ:
         os.environ.pop('DECONF_INCLUDE_PATH')
     cfg = deconf.load(os.path.join(example_dir, 'test_deconf.cfg'))
     check_values(cfg, "self contained")
 
 def test_parse_include_cwd():
-    if 'DECONF_INCLUDE_PATH' in os.environ.keys():
+    if 'DECONF_INCLUDE_PATH' in os.environ:
         os.environ.pop('DECONF_INCLUDE_PATH')
     cfg = deconf.load(os.path.join(example_dir, 'test_deconf_main.cfg'))
     check_values(cfg, "included from local directory")
